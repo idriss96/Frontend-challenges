@@ -23,6 +23,7 @@
         .description {
             color: $gray-dark;
             font-size: 14px;
+            line-height: 2;
         }
 
         .list {
@@ -46,12 +47,24 @@
             flex-direction: column;
             margin-top: 12px;
 
+
+
             &-label {
                 color: $gray-dark;
                 font-size: 10px;
                 font-weight: $weight-700;
                 margin-bottom: 12px;
+                display: flex;
+                justify-content: space-between;
+
+                .label-error {
+                    color: $primary-color;
+                    font-size: 10px;
+                    font-weight: $weight-700;
+                }
             }
+
+
 
             &-input {
                 width: 324px;
@@ -65,6 +78,23 @@
                 &:focus {
                     outline: none;
                     border: 1px solid $gray-dark;
+                }
+
+            }
+            &-input-error {
+                width: 324px;
+                height: 48px;
+                padding: 12px;
+                border: 1px solid $primary-color;
+                border-radius: 5px;
+                font-size: 14px;
+                margin-bottom: 16px;
+                color: $primary-color;
+                background-color: $primary-color-light;
+
+                &:focus {
+                    outline: none;
+                    border: 1px solid $primary-color;
                 }
             }
 
