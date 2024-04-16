@@ -1,18 +1,19 @@
 import image from '../assets/images/illustration-sign-up-desktop.svg';
 import iconList from '../assets/images/icon-list.svg';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setEmail } from '../state/email/email';
 
 function SubscribeCard() {
-  let email = '';
   const [emailError, setEmailError] = useState(false);
 
-  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    email = e.target[0].value;
-    console.log(email);
-    if (emailRegex.test(email)) {
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (emailRegex.test(e.target.email.value)) {
+      dispatch(setEmail(e.target.email.value));
       setEmailError(false);
     } else {
       setEmailError(true);
@@ -51,8 +52,9 @@ function SubscribeCard() {
             ) : null}
           </div>
           <input
-            className={emailError ? "form-input-error" : 'form-input'}
-
+            className={emailError ? 'form-input-error' : 'form-input'}
+            id="email"
+            name="email"
             type="email"
             placeholder="email@company.com"
           />
