@@ -2,7 +2,6 @@
 
 interface HeaderProps {
   title: string;
-  // any type of content
   theme?: any;
 }
 

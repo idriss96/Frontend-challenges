@@ -1,0 +1,78 @@
+.add-item {
+  width: 100%;
+  max-width: 33.75rem;
+  display: flex;
+  align-items: center;
+  background-color: $very-dark-desaturated-blue;
+  border-radius: 0.3rem;
+
+  .text-input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 0;
+    border: none;
+    font-size: 1rem;
+    font-weight: 400;
+    color: $very-light-gray;
+    background-color: $very-dark-desaturated-blue;
+    transition: background-color 0.3s ease;
+
+    &::placeholder {
+      font-family: 'Josefin Sans', sans-serif;
+    }
+
+    &:focus {
+      outline: none;
+      border: none;
+    }
+  }
+
+  .custom-checkbox {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+  }
+  .checkbox {
+    display: none;
+  }
+
+  .mark {
+    display: inline-block;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    padding: 0.4rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px solid $very-dark-grayish-blue;
+
+    .mark-icon {
+      display: none;
+    }
+  }
+
+  .checkbox:checked + .mark {
+    background-color: $bright-blue;
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    padding: 0.4rem;
+
+    .mark-icon {
+      display: block;
+    }
+  }
+
+  button {
+    display: none;
+  }
+}
+
+[data-theme="dark"] .add-item {
+  background-color: $very-light-gray;
+
+    .text-input {
+        color: $very-dark-grayish-blue;
+        background-color: $very-light-gray;
+    } 
+}

@@ -2,6 +2,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -12,11 +14,19 @@ body {
   background-image: url("../../../public/bg-desktop-light.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: $very-light-gray;
 }
 
 [data-theme="dark"] body {
   background-image: url("../../../public/bg-desktop-dark.jpg");
+  background-color: $very-dark-blue;
 }
+
+main {
+  width: 100%;
+  max-width: 33.75rem;
+}
+
 
 
 
