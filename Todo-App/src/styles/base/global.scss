@@ -5,20 +5,17 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: $gray-charcoal;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  background-image: url("../../../public/bg-desktop-light.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
+[data-theme="dark"] body {
+  background-image: url("../../../public/bg-desktop-dark.jpg");
 }
 
 

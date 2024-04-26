@@ -1,7 +1,13 @@
+'use client';
+
+import ThemeSwitcher from '../components/ThemeSwitcher';
+import ReduxProvider from './storeProvider';
+import Header from '../components/Header';
+
 export default function Home() {
   return (
-    <main>
-      <h1>Todo-App</h1>
-    </main>
+    <ReduxProvider>
+      <Header title="Todo" theme={<ThemeSwitcher />} />
+    </ReduxProvider>
   );
 }
