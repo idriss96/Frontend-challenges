@@ -7,21 +7,29 @@ import Image from 'next/image';
 import { addItem } from '../../state/itemSlice';
 import checkIcon from '../../../public/icon-check.svg';
 
-const AddItem: React.FC<AddItemProps> = () => {
+const AddItem: React.FC = () => {
   const dispatch = useDispatch();
   const [text, setText] = useState('');
+  const [checked, setChecked] = useState(false);
 
-  const handleAddItem = () => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
     if (text) {
-      dispatch(addItem(text));
+      dispatch(addItem({ name: text, completed: checked }));
       setText('');
+      setChecked(false);
     }
   };
 
   return (
-    <form className="add-item" onSubmit={e => e.preventDefault()}>
+    <form className="add-item" onSubmit={handleSubmit}>
       <label className="custom-checkbox">
-        <input type="checkbox" className="checkbox" />
+        <input
+          type="checkbox"
+          className="checkbox"
+          checked={checked}
+          onChange={() => setChecked(!checked)}
+        />
         <span className="mark">
           <Image className="mark-icon" src={checkIcon} alt="Check icon" />
         </span>
@@ -33,9 +41,7 @@ const AddItem: React.FC<AddItemProps> = () => {
         onChange={e => setText(e.target.value)}
         placeholder="Create a new todo..."
       />
-      <button type="submit" onClick={handleAddItem}>
-        Add
-      </button>
+      <button type="submit">Add</button>
     </form>
   );
 };

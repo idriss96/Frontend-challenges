@@ -4,13 +4,15 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
+  position: relative;
+  min-height: 100vh;
   background-image: url("../../../public/bg-desktop-light.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -25,6 +27,9 @@ body {
 main {
   width: 100%;
   max-width: 33.75rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
 }
 
 

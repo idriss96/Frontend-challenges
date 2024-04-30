@@ -12,7 +12,11 @@ interface ItemState {
 }
 
 const initialState: ItemState = {
-  items: [],
+  items: [
+    { id: 0, name: 'Learn React', completed: true },
+    { id: 1, name: 'Learn Redux', completed: false },
+    { id: 2, name: 'Build a React App', completed: false },
+  ],
 };
 
 const itemSlice = createSlice({
@@ -20,12 +24,11 @@ const itemSlice = createSlice({
   initialState,
   reducers: {
     addItem(state, action) {
-      const newItem = {
-        id: state.items.length ? state.items[state.items.length - 1].id + 1 : 0,
-        name: action.payload,
-        completed: false,
-      };
-      state.items.push(newItem);
+      state.items.push({
+        id: state.items.length,
+        name: action.payload.name,
+        completed: action.payload.completed,
+      });
     },
     deleteItem(state, action) {
       state.items = state.items.filter(item => item.id !== action.payload);
@@ -36,8 +39,12 @@ const itemSlice = createSlice({
         item.completed = !item.completed;
       }
     },
+    filterCompleted(state) {
+      state.items = state.items.filter(item => !item.completed);
+    },
   },
 });
 
-export const { addItem, deleteItem, toggleItem } = itemSlice.actions;
+export const { addItem, deleteItem, toggleItem, filterCompleted } =
+  itemSlice.actions;
 export default itemSlice.reducer;

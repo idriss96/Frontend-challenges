@@ -1,4 +1,193 @@
-.completed {
-    text-decoration: line-through;
-    color: #ccc;
+
+
+.list-items {
+  width: 100%;
+  max-width: 33.75rem;
+  margin-top: 1.5rem;
+
+  .list {
+    .item {
+      display: flex;
+      align-items: center;
+      height: 4rem;
+      background-color: $very-light-gray;
+      border-top: 1px solid $light-grayish-blue;
+      box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
+
+      span {
+        color: $very-dark-desaturated-blue;
+      }
+
+      
+
+      .completed {
+        text-decoration: line-through;
+        color: $light-grayish-blue;
+      }
+
+      .custom-checkbox {
+        display: flex;
+        align-items: center;
+        margin-left: 1rem;
+      }
+      .checkbox {
+        display: none;
+      }
+
+      .mark {
+        display: inline-block;
+        height: 1.5rem;
+        width: 1.5rem;
+        border-radius: 50%;
+        padding: 0.4rem;
+        margin-right: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        border: 1px solid $light-grayish-blue;
+        .mark-icon {
+          display: none;
+        }
+      }
+
+      .mark:hover {
+        border: 1px solid $bright-blue;
+      }
+
+      .checkbox:checked + .mark {
+        background-color: $bright-blue;
+        height: 1.5rem;
+        width: 1.5rem;
+        border-radius: 50%;
+        padding: 0.4rem;
+
+        .mark-icon {
+          display: block;
+        }
+      }
+
+      .cross-btn {
+        margin-left: auto;
+        background-color: $very-light-gray;
+        border: none;
+        padding-right: 1rem;
+        cursor: pointer;
+
+        &:hover {
+          .cross-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+        }
+      }
+
+    }
+
+    .last {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 1rem;
+
+      .filter {
+        display: flex;
+        gap: 1rem;
+
+        button {
+          background-color: $very-light-gray;
+          border: none;
+          color: $dark-grayish-blue;
+          cursor: pointer;
+          &:hover {
+            color: $very-dark-desaturated-blue;
+          }
+        }
+
+        .active {
+          color: $bright-blue;
+        }
+      }
+      .item-length {
+        color: $dark-grayish-blue;
+        font-weight: 400;
+        font-size: .7rem;
+      }
+      .clear-btn {
+        background-color: $very-light-gray;
+        border: none;
+        color: $dark-grayish-blue;
+        cursor: pointer;
+        &:hover {
+          color: $very-dark-desaturated-blue;
+        }
+      }
+
+    }
+
+    .item:first-child {
+      border-top-left-radius: 0.3rem;
+      border-top-right-radius: 0.3rem;
+      border-top: none;
+    }
+
+    .item:last-child {
+      border-bottom-left-radius: 0.3rem;
+      border-bottom-right-radius: 0.3rem;
+    }
+  }
 }
+
+[data-theme='dark'] .list-items {
+  .completed {
+    color: $very-dark-grayish-blue !important;
+  }
+
+  .item {
+    background-color: $very-dark-desaturated-blue;
+    border-top: 1px solid $very-dark-grayish-blue-dark-theme;
+    span {
+        color: $very-light-gray;
+      }
+  }
+
+  .cross-btn {
+    background-color: $very-dark-desaturated-blue !important;
+  }
+
+  .last {
+  
+
+    .filter {
+     
+
+      button {
+     
+       background-color: $very-dark-desaturated-blue;
+        color: $dark-grayish-blue;
+        
+        &:hover {
+          color: $very-light-gray;
+        }
+      }
+
+      .active {
+        color: $bright-blue;
+      }
+    }
+    .item-length {
+      color: $dark-grayish-blue;
+      
+    }
+    .clear-btn {
+      background-color: $very-dark-desaturated-blue;
+   
+      color: $dark-grayish-blue;
+     
+      &:hover {
+        color: $very-light-gray ;
+      }
+    }
+
+  }
+
+}
+
+
